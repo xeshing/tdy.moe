@@ -1,0 +1,204 @@
+:root {
+    --bg-color: #dddddd; 
+    --dot-color: #c9184a;
+    --card-bg: white;
+    --text-main: black;
+    --text-secondary: #555;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --card-outline: #bebebe;
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --dot-color: #ff4d7d;
+    --card-bg: #1e1e1e;
+    --text-main: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --shadow-color: rgba(0, 0, 0, 0.8);
+    --card-outline: #444444;
+}
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--bg-color);
+    transition: background-color 0.5s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 10% 10%, var(--dot-color) 5%, transparent 5%),
+        radial-gradient(circle at 90% 10%, var(--dot-color) 5%, transparent 5%),
+        radial-gradient(circle at 90% 90%, var(--dot-color) 5%, transparent 5%),
+        radial-gradient(circle at 10% 90%, var(--dot-color) 5%, transparent 5%);
+    background-size: 20px 20px;
+}
+
+.card {
+    width: 190px;
+    height: auto;
+    background: var(--card-bg);
+    color: var(--text-main);
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card p {
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+
+.shadow {
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
+                0 0 0 2px var(--card-outline),
+                0.3em 0.3em 1em var(--shadow-color);
+}
+
+.character {
+    position: absolute;
+    top: -130px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    z-index: 2;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.character.day {
+    opacity: 1;
+}
+
+.character.night {
+    opacity: 0;
+}
+
+body.dark-mode .character.day {
+    opacity: 0;
+}
+
+body.dark-mode .character.night {
+    opacity: 1;
+}
+
+.profile-card {
+    position: relative;
+    width: 190px;
+}
+
+button {
+    background-color: #fff;
+    border: 1px solid #c9184a;
+    padding: 5px;
+    position: relative;
+    width: 7.2em;
+    height: 2em;
+    transition: 0.5s;
+    font-size: 17px;
+    border-radius: 0.4em;
+}
+
+button p {
+    position: absolute;
+    top: 0.4em;
+    left: 1.2em;
+    margin: 0;
+    padding: 2;
+    transition: .5s;
+    color: #c9184a;
+}
+
+button svg {
+    position: absolute;
+    top: 0.45em;
+    right: 0.5em;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transition: 0.5s;
+    height: 1em;
+    fill: #fff;
+}
+
+button:hover p {
+    left: 0.6em;
+    color: #fff;
+}
+
+button:hover svg {
+    opacity: 1;
+}
+
+button:hover {
+    background-color: #c9184a;
+}
+
+.toggle-switch {
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    z-index: 10;
+    transform: translateX(-50%) scale(0.6);
+    width: 100px;
+    height: 50px;
+    --light: #d8dbe0;
+    --dark: #28292c;
+    --link: rgb(27, 129, 112);
+    --link-hover: rgb(24, 94, 82);
+}
+
+.switch-label {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background-color: var(--dark);
+    border-radius: 25px;
+    cursor: pointer;
+    border: 3px solid var(--dark);
+}
+
+.checkbox {
+    position: absolute;
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider {
+    background-color: var(--light);
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    box-shadow: inset 12px -4px 0px 0px var(--light);
+    background-color: var(--dark);
+    transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider::before {
+    transform: translateX(50px);
+    background-color: var(--dark);
+    box-shadow: none;
+}
