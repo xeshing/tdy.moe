@@ -22,10 +22,16 @@ html, body {
     margin: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
     background-color: var(--bg-color);
     transition: background-color 0.5s ease;
     font-family: 'Poppins', sans-serif;
+}
+
+/* Wider content for pages with long text blocks (e.g., GPG public key) */
+.card.wide {
+    width: min(90vw, 800px);
+    padding: 20px;
 }
 
 .container {
@@ -94,6 +100,11 @@ body.dark-mode .character.night {
 .profile-card {
     position: relative;
     width: 190px;
+}
+
+.profile-card.wide {
+    width: min(90vw, 820px);
+    margin: 0 auto;
 }
 
 button {
