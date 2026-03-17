@@ -29,10 +29,7 @@ html, body {
 }
 
 /* Wider content for pages with long text blocks (e.g., GPG public key) */
-.card.wide {
-    width: min(90vw, 800px);
-    padding: 20px;
-}
+/* (moved after .card so it can override the default width) */
 
 .container {
     min-height: 100vh;
@@ -57,6 +54,11 @@ html, body {
     border-radius: 10px;
     padding: 15px;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card.wide {
+    width: min(90vw, 800px);
+    padding: 20px;
 }
 
 .card p {
