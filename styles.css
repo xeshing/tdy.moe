@@ -105,8 +105,15 @@ body.dark-mode .character.night {
 }
 
 .profile-card.wide {
-    width: min(90vw, 820px);
+    width: 100%;
+    max-width: 820px;
     margin: 0 auto;
+}
+
+.card.wide {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
 }
 
 button {

@@ -68,5 +68,12 @@ jrLHQXsy22WP3wf6IVkLB/v6sMPo+VmHHfRn44vuEZ/aFE7SBFE2rns=
             </p>
         </div>
     </div>
+    <script>
+        // Persist dark mode between pages
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
 </body>
 </html>
